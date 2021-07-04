@@ -50,7 +50,7 @@ jobs:
              mv rclone/rclone.conf /home/runner/.config/rclone
              rm -rf rclone
              mkdir /home/runner/drive
-             rclone mount --daemon gdrive:/ /home/runner/drive
+             rclone mount --daemon haa:/ /home/runner/drive
 
      
      - name: Clone botgram shell-bot repo and Generate config
