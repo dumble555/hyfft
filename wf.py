@@ -74,22 +74,22 @@ for i in range(10):
     loadingAn()
 
 #%cd '/dev/shm'
-os.system("bash -c 'ffmpeg -hide_banner -ss 00:56.0 -i "$Path" -vframes 1 -q:v 2 -y "frame1.png"'")
-os.system("bash -c 'curl --insecure -F "reqtype=fileupload" -F "fileToUpload=@frame1.png" https://catbox.moe/user/api.php -o frame1.txt'")
+os.system(ffmpeg -hide_banner -ss 00:56.0 -i "$Path" -vframes 1 -q:v 2 -y "frame1.png")
+os.system(curl --insecure -F "reqtype=fileupload" -F "fileToUpload=@frame1.png" https://catbox.moe/user/api.php -o frame1.txt)
 
 
 f1 = open('frame1.txt', 'r')
 file_content1 = f1.read()
 f1.close()
 time.sleep(2)
-os.system("bash -c 'ffmpeg -hide_banner -ss 02:26.0 -i "$Path" -vframes 1 -q:v 2 -y "frame2.png"'")
-os.system("bash -c 'curl --insecure -F "reqtype=fileupload" -F "fileToUpload=@frame2.png" https://catbox.moe/user/api.php -o frame2.txt"'")
+os.system(ffmpeg -hide_banner -ss 02:26.0 -i "$Path" -vframes 1 -q:v 2 -y "frame2.png")
+os.system(curl --insecure -F "reqtype=fileupload" -F "fileToUpload=@frame2.png" https://catbox.moe/user/api.php -o frame2.txt")
 f2 = open('frame2.txt', 'r')
 file_content2 = f2.read()
 f2.close()
 time.sleep(2)
-os.system("bash -c 'ffmpeg -hide_banner -ss 04:10.0 -i "$Path" -vframes 1 -q:v 2 -y "frame3.png"'")
-os.system("bash -c 'curl --insecure -F "reqtype=fileupload" -F "fileToUpload=@frame3.png" https://catbox.moe/user/api.php -o frame3.txt"'")
+os.system(ffmpeg -hide_banner -ss 04:10.0 -i "$Path" -vframes 1 -q:v 2 -y "frame3.png")
+os.system(curl --insecure -F "reqtype=fileupload" -F "fileToUpload=@frame3.png" https://catbox.moe/user/api.php -o frame3.txt")
 f3 = open('frame3.txt', 'r')
 file_content3 = f3.read()
 f3.close()
@@ -97,7 +97,7 @@ f3.close()
 imdb_pattern = re.compile('(tt\d{7,8})')
 imdb_id = re.findall(imdb_pattern, IMDB_URL_OR_ID)[0]
 
-os.system("bash -c 'cd '$pwd''")
+os.system(cd '$pwd')
 def get_imdb_template(imdb_id):
   imdb_url = f'http://www.omdbapi.com/?i={imdb_id}&apikey={api_key}&r=json&plot=short'
   Screenshot1 = file_content1
