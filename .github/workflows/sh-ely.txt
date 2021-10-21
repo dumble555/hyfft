@@ -44,8 +44,8 @@ jobs:
              rm -rf rclone
              mkdir /home/runner/drive
              rclone mount --daemon haa:/ /home/runner/drive
-
+             aria2c $ddl
      
-     - name: Clone botgram shell-bot repo and Generate config
+     - name: wf
        run: |
-          
+          python3 wf.py
