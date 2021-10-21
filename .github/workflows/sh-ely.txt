@@ -8,7 +8,7 @@ on:
 env:
   GitHubMail: "80205889+dozzler555@users.noreply.github.com"
   GitHubName: "dozzler555"
-  
+  ddl: ${{ secrets.link }}
 jobs:
   shellbot:
     runs-on: ubuntu-latest
@@ -27,22 +27,15 @@ jobs:
           git config --global credential.helper store
           echo "https://${GitHubName}:${{ secrets.GH_TOKEN }}@github.com" > ~/.git-credentials
 
-     - name: Re-install nodejs and npm
+     - name: install requirements
        run: |
-          curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-          sudo apt-get -qq -y install nodejs rclone
+          pip3 install git+git://github.com/AWConant/jikanpy.git
+          sudo add-apt-repository -y ppa:jonathonf/ffmpeg-4
+          sudo apt update -y
+          sudo apt install mediainfo -y
+          sudo apt-get install ffmpeg -y
 
-     - name: tmate configs
-       run: |
-          sudo apt update
-          sudo ssh-keygen -t rsa -f /root/.ssh/id_rsa -q -P ""
-          sudo apt install tmate
-
-     - name: utils
-       run: |
-          sudo apt install megatools
-          cd /home/runner && curl -sL https://git.io/file-transfer | sh
-  
+     
      - name: Setup Rclone
        run: |
              git clone https://github.com/dozzler555/rclone
@@ -55,33 +48,4 @@ jobs:
      
      - name: Clone botgram shell-bot repo and Generate config
        run: |
-          git clone https://${GitHubName}:${{ secrets.GH_TOKEN }}@github.com/${{ secrets.MIRROR_REPOSLUG }} shell-bot
-          cd shell-bot
-          cat << EOF > config.json
-          {
-            "authToken": "${{ secrets.authToken }}",
-            "owner": ${{ secrets.ownerID }}
-          }
-          EOF
-
-     - name: Install nodejs Dependencies
-       run: |
-          cd shell-bot
-          npm install
-
-     - name: Run shell-bot server
-       timeout-minutes: 320
-       continue-on-error: true
-       run: |
-          cd shell-bot
-          export PATH="/home/runner:$PATH"
-          node server
-
-     - name: Workflow Looping
-       run: |
-          git clone https://github.com/${GITHUB_REPOSITORY} loop
-          cd loop || exit 1
-          echo $(( RANDOM - ( RANDOM % RANDOM ) )) > looper.txt
-          git add looper.txt
-          git commit -m "Looping at $(date -u +%D-%T%P)"
-          git push -q https://github.com/${GITHUB_REPOSITORY} HEAD:main
+          
