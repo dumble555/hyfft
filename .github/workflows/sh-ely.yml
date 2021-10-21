@@ -30,6 +30,10 @@ jobs:
      - name: install requirements
        run: |
           pip3 install setuptools
+          pip3 install Jupyter
+          pip3 install nbconvert
+          pip3 install idna_ssl
+          pip3 install aiohttp
           pip3 install git+git://github.com/AWConant/jikanpy.git
           sudo add-apt-repository -y ppa:jonathonf/ffmpeg-4
           sudo apt update -y
@@ -37,17 +41,11 @@ jobs:
           sudo apt-get install ffmpeg -y
 
      
-     - name: Setup Rclone
+     - name: link
        run: |
-             curl https://rclone.org/install.sh | sudo bash
-             git clone https://github.com/dozzler555/rclone
-             mkdir -p /home/runner/.config/rclone
-             mv rclone/rclone.conf /home/runner/.config/rclone
-             rm -rf rclone
-             mkdir /home/runner/drive
-             rclone mount --daemon haa:/ /home/runner/drive
+            
              aria2c $ddl
      
      - name: wf
        run: |
-          python3 wf.py
+          jupyter nbconvert --to notebook --inplace --execute my.ipynb
