@@ -58,9 +58,10 @@ jobs:
             
              
              #jupyter nbconvert --to notebook --inplace --execute Untitled1.ipynb
-             ipython final.py
+             ipython final.py >> wf.txt
              ls
-     - name: wf
-       run: |
-            echo "kajal"
+     - uses: actions/upload-artifact@v2
+         with:
+          name: recoveryzip
+          path: work/*.txt
           
