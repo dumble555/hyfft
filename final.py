@@ -26,7 +26,7 @@ AUTO_MOVE_PATH = "/home/runner/"
 HOME = os.path.expanduser("~")
 if not os.path.exists(f"{HOME}/.ipython/ocr.py"):
     get_ipython().system('wget https://raw.githubusercontent.com/biplobsd/OneClickRun/master/res/ocr.py')
-    get_ipython().system('mkdir ~/.ipython && mv ./ocr.py ~/.ipython/ocr.py')
+    get_ipython().system('mkdir ~/.ipython && mv ./ocr.py $HOME/.ipython/ocr.py')
 
 
 
