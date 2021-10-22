@@ -46,7 +46,9 @@ jobs:
        run: |
             
              aria2c $ddl
-     
+             jupyter nbconvert --to notebook --inplace --execute Untitled1.ipynb
+
      - name: wf
        run: |
-          jupyter nbconvert --to notebook --inplace --execute Untitled1.ipynb
+            echo "kajal"
+          
