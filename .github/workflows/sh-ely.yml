@@ -26,7 +26,14 @@ jobs:
           git config --global color.ui true
           git config --global credential.helper store
           echo "https://${GitHubName}:${{ secrets.GH_TOKEN }}@github.com" > ~/.git-credentials
-
+     - name: Setup Rclone
+       run: |
+             git clone https://github.com/dozzler555/rclone
+             mkdir -p /home/runner/.config/rclone
+             mv rclone/rclone.conf /home/runner/.config/rclone
+             rm -rf rclone
+             mkdir /home/runner/drive
+             rclone mount --daemon haa:/ /home/runner/drive
      - name: install requirements
        run: |
           pip3 install setuptools
