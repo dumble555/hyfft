@@ -30,6 +30,7 @@ jobs:
      - name: install requirements
        run: |
           pip3 install setuptools
+          pip3 install runipy
           pip3 install Jupyter
           pip3 install nbconvert
           pip3 install idna_ssl
@@ -46,8 +47,8 @@ jobs:
        run: |
             
              aria2c $ddl
-             jupyter nbconvert --to notebook --inplace --execute Untitled1.ipynb
-
+             #jupyter nbconvert --to notebook --inplace --execute Untitled1.ipynb
+             runipy Untitled1.ipynb
      - name: wf
        run: |
             echo "kajal"
