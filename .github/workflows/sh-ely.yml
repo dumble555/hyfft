@@ -48,4 +48,4 @@ jobs:
      
      - name: wf
        run: |
-          jupyter nbconvert --to notebook --inplace --execute my.ipynb
+          jupyter nbconvert --to notebook --inplace --execute Untitled1.ipynb
