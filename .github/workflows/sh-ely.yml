@@ -40,6 +40,7 @@ jobs:
           pip3 install setuptools
           pip3 install runipy
           pip3 install Jupyter
+          pip3 install ipython
           pip3 install nbconvert
           pip3 install idna_ssl
           pip3 install beautifulsoup4
