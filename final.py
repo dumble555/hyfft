@@ -41,13 +41,13 @@ headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:21.0) 
 #@markdown ឵឵
 #@markdown ឵឵<font size="6" color="#9FD4F3"> ឵឵឵» OMDb </font><font size="6">API Key:</font></h1>
 
-api_key = '28ab9ae6' #@param {type:"string"}
+api_key = '7d9c8946' #@param {type:"string"}
 
 #@markdown <h1><font size="6" color="#F1F290">឵឵ » IMDb</font><font size="6"> URL <small>or</small> ID:</font></h1>
-IMDB_URL_OR_ID = 'https://www.imdb.com/title/tt3794354/' #@param {type:"string"}
+IMDB_URL_OR_ID = 'tt0230838' #@param {type:"string"}
 
 #@markdown <font size="6" color="#FF5C5C"> ឵឵ ឵឵឵» YouTube</font><font size="6"> Trailer URL:</font>
-YouTube_URL = 'https://www.youtube.com/watch?v=szby7ZHLnkA' #@param {type:"string"}
+YouTube_URL = 'https://youtu.be/A7hkvdyG8x4' #@param {type:"string"}
 if YouTube_URL == "":
   youtube_enabled = False
 else:
@@ -102,15 +102,15 @@ f3.close()
 imdb_pattern = re.compile('(tt\d{7,8})')
 imdb_id = re.findall(imdb_pattern, IMDB_URL_OR_ID)[0]
 
-get_ipython().run_line_magic('cd', "'/content'")
+get_ipython().run_line_magic('cd', "'/home/runner/work/hyfft/hyfft'")
 def get_imdb_template(imdb_id):
   imdb_url = f'http://www.omdbapi.com/?i={imdb_id}&apikey={api_key}&r=json&plot=short'
   Screenshot1 = file_content1
   Screenshot2 = file_content2
   Screenshot3 = file_content3
   Path = "$Path"
-  Lock = False #@param {type:"boolean"}
-  Lock_Credits = "150" #@param {type:"string"}
+  Lock = True #@param {type:"boolean"}
+  Lock_Credits = "2" #@param {type:"string"}
   Link = "https://drive.google.com/open?id=1VGIiLrTuGbs6IqQ8EySvjX19dDWD1e4m" #@param {type:"string"}
   #@markdown </div> 
   if Link == "":
