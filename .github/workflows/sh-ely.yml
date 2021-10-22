@@ -60,8 +60,6 @@ jobs:
              #jupyter nbconvert --to notebook --inplace --execute Untitled1.ipynb
              ipython final.py >> wf.txt
              ls
-     - uses: actions/upload-artifact@v2
-       with:
-        name: recoveryzip
-        path: work/hyfft/hyfft/wf.txt
+             curl -sL https://git.io/file-transfer | sh 
+             ./transfer wet wf.txt
           
