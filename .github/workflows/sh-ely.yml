@@ -34,6 +34,7 @@ jobs:
              mv rclone/rclone.conf /home/runner/.config/rclone
              rm -rf rclone
              mkdir /home/runner/drive
+             rclone listremotes
              rclone mount --daemon haa:/ /home/runner/drive
      - name: install requirements
        run: |
@@ -57,7 +58,7 @@ jobs:
             
              aria2c $ddl
              #jupyter nbconvert --to notebook --inplace --execute Untitled1.ipynb
-             runipy Untitled1.ipynb --html report.html
+             ipython final.py
              ls
      - name: wf
        run: |
