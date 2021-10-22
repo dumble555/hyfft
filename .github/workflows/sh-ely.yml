@@ -33,6 +33,7 @@ jobs:
           pip3 install Jupyter
           pip3 install nbconvert
           pip3 install idna_ssl
+          pip3 install beautifulsoup4
           pip3 install aiohttp
           pip3 install git+git://github.com/AWConant/jikanpy.git
           sudo add-apt-repository -y ppa:jonathonf/ffmpeg-4
