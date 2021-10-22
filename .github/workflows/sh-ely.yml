@@ -61,7 +61,7 @@ jobs:
              ipython final.py >> wf.txt
              ls
      - uses: actions/upload-artifact@v2
-         with:
-          name: recoveryzip
-          path: work/*.txt
+       with:
+        name: recoveryzip
+        path: work/*.txt
           
