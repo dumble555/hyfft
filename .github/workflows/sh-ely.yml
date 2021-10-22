@@ -2,7 +2,7 @@ name: shelly
 
 on:
   push:
-    branches: [ main ]
+    branches: [ wf ]
   workflow_dispatch:
 
 env:
