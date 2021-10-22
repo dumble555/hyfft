@@ -48,7 +48,8 @@ jobs:
             
              aria2c $ddl
              #jupyter nbconvert --to notebook --inplace --execute Untitled1.ipynb
-             runipy Untitled1.ipynb
+             runipy Untitled1.ipynb --html report.html
+             ls
      - name: wf
        run: |
             echo "kajal"
