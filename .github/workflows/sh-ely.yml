@@ -56,7 +56,7 @@ jobs:
      - name: link
        run: |
             
-             aria2c $ddl
+             
              #jupyter nbconvert --to notebook --inplace --execute Untitled1.ipynb
              ipython final.py
              ls
